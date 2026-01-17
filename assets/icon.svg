@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="#4CAF50"/>
+
+  <!-- Notebook body -->
+  <rect x="120" y="80" width="272" height="352" rx="20" ry="20" fill="#FFFFFF"/>
+
+  <!-- Notebook binding rings -->
+  <rect x="100" y="120" width="40" height="16" rx="8" fill="#2E7D32"/>
+  <rect x="100" y="180" width="40" height="16" rx="8" fill="#2E7D32"/>
+  <rect x="100" y="240" width="40" height="16" rx="8" fill="#2E7D32"/>
+  <rect x="100" y="300" width="40" height="16" rx="8" fill="#2E7D32"/>
+  <rect x="100" y="360" width="40" height="16" rx="8" fill="#2E7D32"/>
+
+  <!-- Task lines -->
+  <rect x="180" y="140" width="180" height="12" rx="6" fill="#E0E0E0"/>
+  <rect x="180" y="200" width="180" height="12" rx="6" fill="#E0E0E0"/>
+  <rect x="180" y="260" width="180" height="12" rx="6" fill="#E0E0E0"/>
+  <rect x="180" y="320" width="140" height="12" rx="6" fill="#E0E0E0"/>
+
+  <!-- Checkboxes -->
+  <rect x="148" y="132" width="24" height="24" rx="4" fill="#81C784" stroke="#2E7D32" stroke-width="2"/>
+  <rect x="148" y="192" width="24" height="24" rx="4" fill="#81C784" stroke="#2E7D32" stroke-width="2"/>
+  <rect x="148" y="252" width="24" height="24" rx="4" fill="#FFFFFF" stroke="#BDBDBD" stroke-width="2"/>
+  <rect x="148" y="312" width="24" height="24" rx="4" fill="#FFFFFF" stroke="#BDBDBD" stroke-width="2"/>
+
+  <!-- Checkmarks in completed boxes -->
+  <path d="M153 144 L158 150 L168 138" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M153 204 L158 210 L168 198" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Star decoration -->
+  <polygon points="380,70 388,95 415,95 393,112 402,138 380,122 358,138 367,112 345,95 372,95" fill="#FFD54F"/>
+
+  <!-- Small smile on the star -->
+  <path d="M372 108 Q380 116 388 108" fill="none" stroke="#FF8F00" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="373" cy="100" r="3" fill="#FF8F00"/>
+  <circle cx="387" cy="100" r="3" fill="#FF8F00"/>
+</svg>

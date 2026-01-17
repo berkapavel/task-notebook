@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="#6750A4"/>
+
+  <!-- Clipboard body -->
+  <rect x="120" y="100" width="272" height="340" rx="20" ry="20" fill="#FFFFFF"/>
+
+  <!-- Clipboard clip -->
+  <rect x="180" y="70" width="152" height="60" rx="10" ry="10" fill="#E8DEF8"/>
+  <rect x="200" y="80" width="112" height="40" rx="8" ry="8" fill="#6750A4"/>
+
+  <!-- Task lines -->
+  <rect x="160" y="180" width="192" height="16" rx="8" fill="#E8DEF8"/>
+  <rect x="160" y="230" width="160" height="16" rx="8" fill="#E8DEF8"/>
+  <rect x="160" y="280" width="180" height="16" rx="8" fill="#E8DEF8"/>
+
+  <!-- Checkmark circle -->
+  <circle cx="320" cy="360" r="70" fill="#4CAF50"/>
+
+  <!-- Checkmark -->
+  <path d="M290 360 L310 385 L355 330"
+        stroke="#FFFFFF"
+        stroke-width="16"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"/>
+
+  <!-- Star (achievement) -->
+  <polygon points="400,90 412,120 445,120 418,140 428,172 400,152 372,172 382,140 355,120 388,120"
+           fill="#FFD700"/>
+</svg>
