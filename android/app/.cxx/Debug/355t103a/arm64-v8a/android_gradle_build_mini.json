@@ -1,0 +1,97 @@
+{
+  "buildFiles": [
+    "/home/berkic/projects/soukrome/TaskNotebook/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/CMakeLists.txt",
+    "/home/berkic/projects/soukrome/TaskNotebook/node_modules/@react-native-documents/picker/android/build/generated/source/codegen/jni/CMakeLists.txt",
+    "/home/berkic/projects/soukrome/TaskNotebook/node_modules/react-native-get-random-values/android/build/generated/source/codegen/jni/CMakeLists.txt",
+    "/home/berkic/projects/soukrome/TaskNotebook/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
+    "/home/berkic/projects/soukrome/TaskNotebook/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
+    "/home/berkic/projects/soukrome/TaskNotebook/node_modules/react-native-share/android/build/generated/source/codegen/jni/CMakeLists.txt",
+    "/home/berkic/projects/soukrome/TaskNotebook/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt",
+    "/home/berkic/projects/soukrome/TaskNotebook/node_modules/react-native-vector-icons/android/build/generated/source/codegen/jni/CMakeLists.txt",
+    "/home/berkic/projects/soukrome/TaskNotebook/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/berkic/android-sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/home/berkic/projects/soukrome/TaskNotebook/android/app/.cxx/Debug/355t103a/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/berkic/android-sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/home/berkic/projects/soukrome/TaskNotebook/android/app/.cxx/Debug/355t103a/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "react_codegen_RNVectorIconsSpec::@479809fae146501fd34d": {
+      "artifactName": "react_codegen_RNVectorIconsSpec",
+      "abi": "arm64-v8a",
+      "runtimeFiles": []
+    },
+    "react_codegen_safeareacontext::@7984cd80db47aa7b952a": {
+      "artifactName": "react_codegen_safeareacontext",
+      "abi": "arm64-v8a",
+      "output": "/home/berkic/projects/soukrome/TaskNotebook/android/app/build/intermediates/cxx/Debug/355t103a/obj/arm64-v8a/libreact_codegen_safeareacontext.so",
+      "runtimeFiles": [
+        "/home/berkic/.gradle/caches/8.13/transforms/5a4fa8ef8d2ea5d84d321a2c8a409ee0/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.arm64-v8a/libfbjni.so",
+        "/home/berkic/.gradle/caches/8.13/transforms/a5eb6650aace0b6e4adedd8cab5789b7/transformed/react-android-0.83.1-debug/prefab/modules/jsi/libs/android.arm64-v8a/libjsi.so",
+        "/home/berkic/.gradle/caches/8.13/transforms/a5eb6650aace0b6e4adedd8cab5789b7/transformed/react-android-0.83.1-debug/prefab/modules/reactnative/libs/android.arm64-v8a/libreactnative.so"
+      ]
+    },
+    "react_codegen_rndocumentpickerCGen::@aac1846a245ca418eb66": {
+      "artifactName": "react_codegen_rndocumentpickerCGen",
+      "abi": "arm64-v8a",
+      "runtimeFiles": []
+    },
+    "react_codegen_rnscreens::@25bcbd507e98d3a854ad": {
+      "artifactName": "react_codegen_rnscreens",
+      "abi": "arm64-v8a",
+      "output": "/home/berkic/projects/soukrome/TaskNotebook/android/app/build/intermediates/cxx/Debug/355t103a/obj/arm64-v8a/libreact_codegen_rnscreens.so",
+      "runtimeFiles": [
+        "/home/berkic/.gradle/caches/8.13/transforms/a5eb6650aace0b6e4adedd8cab5789b7/transformed/react-android-0.83.1-debug/prefab/modules/reactnative/libs/android.arm64-v8a/libreactnative.so",
+        "/home/berkic/.gradle/caches/8.13/transforms/a5eb6650aace0b6e4adedd8cab5789b7/transformed/react-android-0.83.1-debug/prefab/modules/jsi/libs/android.arm64-v8a/libjsi.so",
+        "/home/berkic/.gradle/caches/8.13/transforms/5a4fa8ef8d2ea5d84d321a2c8a409ee0/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.arm64-v8a/libfbjni.so"
+      ]
+    },
+    "appmodules::@6890427a1f51a3e7e1df": {
+      "artifactName": "appmodules",
+      "abi": "arm64-v8a",
+      "output": "/home/berkic/projects/soukrome/TaskNotebook/android/app/build/intermediates/cxx/Debug/355t103a/obj/arm64-v8a/libappmodules.so",
+      "runtimeFiles": [
+        "/home/berkic/projects/soukrome/TaskNotebook/android/app/build/intermediates/cxx/Debug/355t103a/obj/arm64-v8a/libreact_codegen_safeareacontext.so",
+        "/home/berkic/projects/soukrome/TaskNotebook/android/app/build/intermediates/cxx/Debug/355t103a/obj/arm64-v8a/libreact_codegen_rnscreens.so",
+        "/home/berkic/projects/soukrome/TaskNotebook/android/app/build/intermediates/cxx/Debug/355t103a/obj/arm64-v8a/libreact_codegen_rnsvg.so",
+        "/home/berkic/.gradle/caches/8.13/transforms/5a4fa8ef8d2ea5d84d321a2c8a409ee0/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.arm64-v8a/libfbjni.so",
+        "/home/berkic/.gradle/caches/8.13/transforms/a5eb6650aace0b6e4adedd8cab5789b7/transformed/react-android-0.83.1-debug/prefab/modules/jsi/libs/android.arm64-v8a/libjsi.so",
+        "/home/berkic/.gradle/caches/8.13/transforms/a5eb6650aace0b6e4adedd8cab5789b7/transformed/react-android-0.83.1-debug/prefab/modules/reactnative/libs/android.arm64-v8a/libreactnative.so"
+      ]
+    },
+    "react_codegen_RNGetRandomValuesSpec::@6e1160200c59ddcfca1e": {
+      "artifactName": "react_codegen_RNGetRandomValuesSpec",
+      "abi": "arm64-v8a",
+      "runtimeFiles": []
+    },
+    "react_codegen_rnsvg::@4f40eb209d0c0b4a3b65": {
+      "artifactName": "react_codegen_rnsvg",
+      "abi": "arm64-v8a",
+      "output": "/home/berkic/projects/soukrome/TaskNotebook/android/app/build/intermediates/cxx/Debug/355t103a/obj/arm64-v8a/libreact_codegen_rnsvg.so",
+      "runtimeFiles": [
+        "/home/berkic/.gradle/caches/8.13/transforms/a5eb6650aace0b6e4adedd8cab5789b7/transformed/react-android-0.83.1-debug/prefab/modules/reactnative/libs/android.arm64-v8a/libreactnative.so",
+        "/home/berkic/.gradle/caches/8.13/transforms/a5eb6650aace0b6e4adedd8cab5789b7/transformed/react-android-0.83.1-debug/prefab/modules/jsi/libs/android.arm64-v8a/libjsi.so",
+        "/home/berkic/.gradle/caches/8.13/transforms/5a4fa8ef8d2ea5d84d321a2c8a409ee0/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.arm64-v8a/libfbjni.so"
+      ]
+    },
+    "react_codegen_RNShareSpec::@e6c4c2b5aedb2ea213b7": {
+      "artifactName": "react_codegen_RNShareSpec",
+      "abi": "arm64-v8a",
+      "runtimeFiles": []
+    },
+    "react_codegen_rnasyncstorage::@1596841e19ec5b9eeffe": {
+      "artifactName": "react_codegen_rnasyncstorage",
+      "abi": "arm64-v8a",
+      "runtimeFiles": []
+    }
+  }
+}

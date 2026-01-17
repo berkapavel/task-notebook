@@ -1,0 +1,4 @@
+/home/berkic/projects/soukrome/TaskNotebook/android/app/.cxx/RelWithDebInfo/2z3ie3f5/x86_64/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir
+/home/berkic/projects/soukrome/TaskNotebook/android/app/.cxx/RelWithDebInfo/2z3ie3f5/x86_64/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir
+/home/berkic/projects/soukrome/TaskNotebook/android/app/.cxx/RelWithDebInfo/2z3ie3f5/x86_64/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/edit_cache.dir
+/home/berkic/projects/soukrome/TaskNotebook/android/app/.cxx/RelWithDebInfo/2z3ie3f5/x86_64/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/rebuild_cache.dir
