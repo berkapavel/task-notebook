@@ -57,15 +57,14 @@ export default function MainScreen({ navigation }: MainScreenProps) {
 
     dailyTasks.forEach(task => {
       if (!task.notificationTime) {
-        // Warning tasks (no time)
+        // Warning tasks (no time) - only show in WarningAlertsSection
         warnings.push(task);
-        // If canBeCompleted, also count in completable stats
+        // If canBeCompleted, count in stats but NOT in incomplete list
+        // (they're shown in WarningAlertsSection, not in Úkoly section)
         if (task.canBeCompleted) {
           completable.push(task);
           if (task.dailyState?.completed) {
             completed.push(task);
-          } else {
-            incomplete.push(task);
           }
         }
       } else {
