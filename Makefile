@@ -188,19 +188,19 @@ metro-bg:
 # Build debug APK
 build:
 	@echo "Building debug APK..."
-	@cd $(PROJECT_DIR)/android && ./gradlew assembleDebug
+	@cd $(PROJECT_DIR)/android && ./gradlew assembleDebug --no-build-cache
 	@echo "Build complete: $(APK_PATH)"
 
 # Build release APK
 build-release:
 	@echo "Building release APK..."
-	@cd $(PROJECT_DIR)/android && ./gradlew assembleRelease
+	@cd $(PROJECT_DIR)/android && ./gradlew assembleRelease --no-build-cache
 	@echo "Build complete: $(PROJECT_DIR)/android/app/build/outputs/apk/release/app-release.apk"
 
 # Build release bundle (AAB) for Play Store
 build-bundle:
 	@echo "Building release bundle (AAB)..."
-	@cd $(PROJECT_DIR)/android && ./gradlew bundleRelease
+	@cd $(PROJECT_DIR)/android && ./gradlew bundleRelease --no-build-cache
 	@echo "Build complete: $(PROJECT_DIR)/android/app/build/outputs/bundle/release/app-release.aab"
 
 # Install APK on device (auto-selects emulator if multiple devices and no DEVICE specified)
