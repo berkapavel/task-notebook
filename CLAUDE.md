@@ -93,6 +93,39 @@ npm test             # Run Jest tests
 
 Android (primary). iOS support possible with additional configuration.
 
+## Development Environment
+
+- **OS:** Debian running in WSL2 (Windows Subsystem for Linux) on Windows
+- **Android Emulator:** Runs on Windows host via Android Studio
+- **ADB Path:** `/mnt/c/Users/berka/AppData/Local/Android/Sdk/platform-tools/adb.exe`
+- **Emulator Path:** `/mnt/c/Users/berka/AppData/Local/Android/Sdk/emulator/emulator.exe`
+- **Android SDK (WSL):** `~/android-sdk`
+
+### Building & Testing
+
+Use the Makefile for common operations:
+
+**Device/Emulator Setup (run first):**
+- `make emu` - Start Android Studio emulator
+- `make physical` - Setup physical device (USB debugging)
+- `make devices` - List all connected devices
+
+**App Commands (requires device):**
+- `make start` - Start app: metro, build, install, launch
+- `make restart` - Rebuild and restart app
+- `make reload` - Reload app without rebuild
+- `make logs` - View React Native logs
+- `make help` - See all commands
+
+**Typical Workflow:**
+```bash
+make emu        # Start emulator (or 'make physical' for phone)
+make start      # Build and run app
+make restart    # After code changes
+```
+
+See `docs/test.md` for detailed WSL2 setup and troubleshooting guide.
+
 ## Code Conventions
 
 - Use TypeScript strict mode

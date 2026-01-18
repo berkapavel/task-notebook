@@ -135,9 +135,17 @@ See the `finished/` folder for detailed documentation of each development phase:
 # Install dependencies
 npm install
 
-# Run on Android
-npx react-native run-android
+# Start emulator (or use 'make physical' for USB device)
+make emu
+
+# Build and run the app
+make start
+
+# After code changes
+make restart
 ```
+
+See `test.md` for detailed WSL2 setup guide and troubleshooting.
 
 ## Target Platform
 

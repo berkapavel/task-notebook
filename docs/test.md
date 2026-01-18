@@ -5,11 +5,16 @@ Guide for running the app on Android emulator from WSL (Windows Subsystem for Li
 ## Quick Start with Makefile
 
 ```bash
-# Full setup (emulator + metro + build + install + launch)
-make start
+# Step 1: Start emulator OR setup physical device
+make emu          # Start Android Studio emulator
+# OR
+make physical     # Setup physical device (USB debugging)
 
-# After first setup, just rebuild and restart
-make restart
+# Step 2: Build and run the app
+make start        # metro, build, install, launch
+
+# After code changes
+make restart      # Rebuild and restart app
 
 # Just reload the app (no rebuild)
 make reload
@@ -171,23 +176,47 @@ This means the emulator can't connect to Metro bundler. Fix:
 
 ## Makefile Commands Reference
 
+### Device/Emulator Setup
+
 | Command | Description |
 |---------|-------------|
-| `make start` | Full setup: emulator, metro, build, install, launch |
+| `make emu` | Start Android Studio emulator |
+| `make emulator` | Alias for `make emu` |
+| `make physical` | Setup physical device (USB debugging) |
+| `make devices` | List all connected devices |
+| `make device-info` | Show detailed info about target device |
+
+### App Commands
+
+| Command | Description |
+|---------|-------------|
+| `make start` | Start app: metro, build, install, launch (requires device) |
 | `make restart` | Rebuild, reinstall, and launch app |
 | `make reload` | Just restart the app (no rebuild) |
-| `make emulator` | Start Android emulator |
 | `make metro` | Start Metro bundler (foreground) |
 | `make metro-bg` | Start Metro bundler (background) |
 | `make build` | Build debug APK |
-| `make install` | Install APK on emulator |
-| `make launch` | Launch app on emulator |
+| `make install` | Install APK on device |
+| `make launch` | Launch app on device |
 | `make port` | Setup port forwarding |
+
+### Release Builds
+
+| Command | Description |
+|---------|-------------|
+| `make build-release` | Build release APK for sideloading |
+| `make build-bundle` | Build AAB bundle for Play Store |
+| `make install-release` | Install release APK on device |
+
+### Utilities
+
+| Command | Description |
+|---------|-------------|
 | `make stop` | Stop app and Metro |
 | `make clean` | Clean build files |
 | `make clean-all` | Deep clean (reinstall node_modules) |
 | `make logs` | View React Native logs |
-| `make status` | Check emulator and Metro status |
-| `make uninstall` | Uninstall app from emulator |
+| `make status` | Check device and Metro status |
+| `make uninstall` | Uninstall app from device |
 | `make menu` | Open React Native dev menu |
 | `make reset-cache` | Reset Metro cache |
