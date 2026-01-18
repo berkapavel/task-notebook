@@ -7,9 +7,12 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { View, StyleSheet, Platform } from 'react-native';
 import { Text, Button, IconButton } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { theme, CzechText } from '../theme';
 import * as NotificationService from '../services/NotificationService';
+
+const DISMISSED_PERMISSIONS_KEY = '@TaskNotebook:dismissedPermissions';
 
 type PermissionType = 'notification' | 'exactAlarm' | 'battery';
 
@@ -24,6 +27,24 @@ interface PermissionWarning {
 export default function NotificationPermissionBanner() {
   const [warnings, setWarnings] = useState<PermissionWarning[]>([]);
   const [dismissedTypes, setDismissedTypes] = useState<Set<PermissionType>>(new Set());
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Load dismissed types from storage on mount
+  useEffect(() => {
+    const loadDismissedTypes = async () => {
+      try {
+        const stored = await AsyncStorage.getItem(DISMISSED_PERMISSIONS_KEY);
+        if (stored) {
+          const parsed = JSON.parse(stored) as PermissionType[];
+          setDismissedTypes(new Set(parsed));
+        }
+      } catch (error) {
+        console.error('Failed to load dismissed permissions:', error);
+      }
+      setIsLoaded(true);
+    };
+    loadDismissedTypes();
+  }, []);
 
   const checkPermissions = useCallback(async () => {
     if (Platform.OS !== 'android') {
@@ -75,11 +96,24 @@ export default function NotificationPermissionBanner() {
   }, []);
 
   useEffect(() => {
-    checkPermissions();
-  }, [checkPermissions]);
+    if (isLoaded) {
+      checkPermissions();
+    }
+  }, [checkPermissions, isLoaded]);
 
-  const handleDismiss = (type: PermissionType) => {
-    setDismissedTypes(prev => new Set(prev).add(type));
+  const handleDismiss = async (type: PermissionType) => {
+    const newDismissed = new Set(dismissedTypes).add(type);
+    setDismissedTypes(newDismissed);
+
+    // Persist to storage
+    try {
+      await AsyncStorage.setItem(
+        DISMISSED_PERMISSIONS_KEY,
+        JSON.stringify([...newDismissed])
+      );
+    } catch (error) {
+      console.error('Failed to save dismissed permissions:', error);
+    }
   };
 
   const handleOpenSettings = async (warning: PermissionWarning) => {
@@ -89,6 +123,11 @@ export default function NotificationPermissionBanner() {
       checkPermissions();
     }, 1000);
   };
+
+  // Don't render until we've loaded dismissed state from storage
+  if (!isLoaded) {
+    return null;
+  }
 
   // Filter out dismissed warnings
   const activeWarnings = warnings.filter(w => !dismissedTypes.has(w.type));
