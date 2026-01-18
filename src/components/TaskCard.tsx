@@ -134,10 +134,10 @@ const styles = StyleSheet.create({
   },
   timeChip: {
     backgroundColor: theme.colors.primaryContainer,
-    height: 28,
   },
   timeChipText: {
     fontSize: 14,
+    lineHeight: 20,
     color: theme.colors.onPrimaryContainer,
   },
 });

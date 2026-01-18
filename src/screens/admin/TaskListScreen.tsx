@@ -85,7 +85,7 @@ export default function TaskListScreen({ navigation }: Props) {
                   mode="flat"
                   compact
                   style={[styles.timeChip, { backgroundColor: theme.colors.primaryContainer }]}
-                  textStyle={{ color: theme.colors.onPrimaryContainer, fontSize: 12 }}
+                  textStyle={{ color: theme.colors.onPrimaryContainer, fontSize: 12, lineHeight: 18 }}
                 >
                   {item.notificationTime}
                 </Chip>
@@ -95,7 +95,7 @@ export default function TaskListScreen({ navigation }: Props) {
                   compact
                   icon="alert"
                   style={[styles.timeChip, { backgroundColor: appTheme.custom.warningContainer }]}
-                  textStyle={{ color: appTheme.custom.onWarningContainer, fontSize: 12 }}
+                  textStyle={{ color: appTheme.custom.onWarningContainer, fontSize: 12, lineHeight: 18 }}
                 >
                   Upozornění
                 </Chip>
@@ -260,7 +260,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   timeChip: {
-    height: 24,
   },
   daysRow: {
     flexDirection: 'row',
