@@ -72,9 +72,23 @@ export async function checkExactAlarmPermission(): Promise<boolean> {
     return true;
   }
 
+  // Exact alarm permission is only required on Android 12+ (API level 31+)
+  // On older versions, exact alarms work without special permission
+  if (typeof Platform.Version === 'number' && Platform.Version < 31) {
+    return true;
+  }
+
   const settings = await notifee.getNotificationSettings();
-  // AlarmType.ENABLED means exact alarms are allowed
-  return settings.android.alarm === AlarmType.ENABLED;
+  const alarmStatus = settings.android?.alarm;
+  console.log('Exact alarm status:', alarmStatus, '(ENABLED=1, DISABLED=0)');
+
+  // If alarm status is undefined, assume permission is granted (older API or not applicable)
+  if (alarmStatus === undefined || alarmStatus === null) {
+    return true;
+  }
+
+  // Only return false if explicitly DISABLED (value 0)
+  return alarmStatus !== AlarmType.DISABLED;
 }
 
 /**
