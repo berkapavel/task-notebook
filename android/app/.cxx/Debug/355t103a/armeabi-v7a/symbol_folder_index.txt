@@ -1,1 +1,0 @@
-/home/berkic/projects/soukrome/TaskNotebook/android/app/build/intermediates/cxx/Debug/355t103a/obj/armeabi-v7a

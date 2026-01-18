@@ -1,1 +1,0 @@
-/home/berkic/projects/soukrome/TaskNotebook/android/app/build/intermediates/cxx/RelWithDebInfo/2z3ie3f5/obj/x86
