@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   },
   completableItem: {
     flexDirection: 'row',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     marginLeft: -8,
   },
   bullet: {
