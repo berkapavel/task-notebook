@@ -9,6 +9,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { PaperProvider, ActivityIndicator } from 'react-native-paper';
 import { NavigationContainer, NavigationContainerRef } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { theme, CzechText } from './src/theme';
 import { RootStackParamList } from './src/types';
@@ -60,6 +61,10 @@ function navigateToTask(taskId: string, date: string) {
 // Pending notification to handle after navigation is ready
 let pendingNotification: { taskId: string; date: string } | null = null;
 
+// Storage keys for permission prompts (shown only once)
+const ALARM_PROMPT_SHOWN_KEY = '@notification_alarm_prompt_shown';
+const BATTERY_PROMPT_SHOWN_KEY = '@notification_battery_prompt_shown';
+
 /**
  * Component that initializes notifications and schedules today's reminders
  * Must be inside TaskProvider to access scheduleTodayNotifications
@@ -79,31 +84,49 @@ function NotificationInitializer() {
       console.log('Exact alarm permission:', result.hasExactAlarmPermission);
       console.log('Battery optimization disabled:', result.hasBatteryOptimizationDisabled);
 
+      // Check if prompts have already been shown
+      const alarmPromptShown = await AsyncStorage.getItem(ALARM_PROMPT_SHOWN_KEY);
+      const batteryPromptShown = await AsyncStorage.getItem(BATTERY_PROMPT_SHOWN_KEY);
+
       // Prompt user if exact alarm permission is missing (one-time alert)
-      if (result.hasNotificationPermission && !result.hasExactAlarmPermission) {
+      if (result.hasNotificationPermission && !result.hasExactAlarmPermission && !alarmPromptShown) {
         Alert.alert(
           'Povolení pro upozornění',
           'Pro správné fungování připomínek je potřeba povolit přesné budíky. Chcete otevřít nastavení?',
           [
-            { text: 'Ne', style: 'cancel' },
+            {
+              text: 'Ne',
+              style: 'cancel',
+              onPress: () => AsyncStorage.setItem(ALARM_PROMPT_SHOWN_KEY, 'true'),
+            },
             {
               text: 'Otevřít nastavení',
-              onPress: () => NotificationService.openExactAlarmSettings(),
+              onPress: async () => {
+                await AsyncStorage.setItem(ALARM_PROMPT_SHOWN_KEY, 'true');
+                NotificationService.openExactAlarmSettings();
+              },
             },
           ]
         );
       }
 
       // Prompt user if battery optimization is enabled (one-time alert)
-      if (result.hasNotificationPermission && result.hasExactAlarmPermission && !result.hasBatteryOptimizationDisabled) {
+      if (result.hasNotificationPermission && !result.hasBatteryOptimizationDisabled && !batteryPromptShown) {
         Alert.alert(
           'Optimalizace baterie',
           'Pro spolehlivé připomínky doporučujeme vypnout optimalizaci baterie pro tuto aplikaci.',
           [
-            { text: 'Později', style: 'cancel' },
+            {
+              text: 'Později',
+              style: 'cancel',
+              onPress: () => AsyncStorage.setItem(BATTERY_PROMPT_SHOWN_KEY, 'true'),
+            },
             {
               text: 'Otevřít nastavení',
-              onPress: () => NotificationService.openBatteryOptimizationSettings(),
+              onPress: async () => {
+                await AsyncStorage.setItem(BATTERY_PROMPT_SHOWN_KEY, 'true');
+                NotificationService.openBatteryOptimizationSettings();
+              },
             },
           ]
         );
