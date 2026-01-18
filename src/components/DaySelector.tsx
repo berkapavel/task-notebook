@@ -15,6 +15,8 @@ interface DaySelectorProps {
 }
 
 const ALL_DAYS: DayOfWeek[] = [1, 2, 3, 4, 5, 6, 7];
+const WORKDAYS: DayOfWeek[] = [1, 2, 3, 4, 5];
+const WEEKEND: DayOfWeek[] = [6, 7];
 
 export default function DaySelector({
   selectedDays,
@@ -42,7 +44,19 @@ export default function DaySelector({
     onDaysChange(ALL_DAYS);
   };
 
+  const selectWorkdays = () => {
+    if (disabled) return;
+    onDaysChange(WORKDAYS);
+  };
+
+  const selectWeekend = () => {
+    if (disabled) return;
+    onDaysChange(WEEKEND);
+  };
+
   const isAllSelected = selectedDays.length === 7;
+  const isWorkdaysSelected = selectedDays.length === 5 && WORKDAYS.every(d => selectedDays.includes(d));
+  const isWeekendSelected = selectedDays.length === 2 && WEEKEND.every(d => selectedDays.includes(d));
 
   return (
     <View style={styles.container}>
@@ -81,25 +95,67 @@ export default function DaySelector({
         })}
       </View>
 
-      <Pressable
-        onPress={selectAll}
-        disabled={disabled || isAllSelected}
-        style={[
-          styles.selectAllButton,
-          {
-            opacity: disabled || isAllSelected ? 0.5 : 1,
-          },
-        ]}
-      >
-        <Text
+      <View style={styles.quickSelectRow}>
+        <Pressable
+          onPress={selectAll}
+          disabled={disabled || isAllSelected}
           style={[
-            styles.selectAllText,
-            { color: theme.colors.primary },
+            styles.quickSelectButton,
+            {
+              opacity: disabled || isAllSelected ? 0.5 : 1,
+            },
           ]}
         >
-          Vybrat všechny dny
-        </Text>
-      </Pressable>
+          <Text
+            style={[
+              styles.quickSelectText,
+              { color: theme.colors.primary },
+            ]}
+          >
+            Všechny dny
+          </Text>
+        </Pressable>
+
+        <Pressable
+          onPress={selectWorkdays}
+          disabled={disabled || isWorkdaysSelected}
+          style={[
+            styles.quickSelectButton,
+            {
+              opacity: disabled || isWorkdaysSelected ? 0.5 : 1,
+            },
+          ]}
+        >
+          <Text
+            style={[
+              styles.quickSelectText,
+              { color: theme.colors.primary },
+            ]}
+          >
+            Pracovní dny
+          </Text>
+        </Pressable>
+
+        <Pressable
+          onPress={selectWeekend}
+          disabled={disabled || isWeekendSelected}
+          style={[
+            styles.quickSelectButton,
+            {
+              opacity: disabled || isWeekendSelected ? 0.5 : 1,
+            },
+          ]}
+        >
+          <Text
+            style={[
+              styles.quickSelectText,
+              { color: theme.colors.primary },
+            ]}
+          >
+            Víkend
+          </Text>
+        </Pressable>
+      </View>
     </View>
   );
 }
@@ -124,11 +180,16 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '600',
   },
-  selectAllButton: {
-    alignItems: 'center',
+  quickSelectRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     paddingVertical: 8,
   },
-  selectAllText: {
+  quickSelectButton: {
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+  },
+  quickSelectText: {
     fontSize: 14,
   },
 });
